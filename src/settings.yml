@@ -36,7 +36,7 @@ custom_fields:
   field_type: author_bio
   description: An unofficial, glanceable NOS headline reader, optimized for TRMNL X and compatible with other TRMNL screens. Nieuws · Voorpagina uses a public text proxy to follow the NOS homepage when available. Article text and images come from official NOS RSS feeds. If homepage ordering is unavailable, Voorpagina automatically falls back to RSS order. Other feeds always use RSS order.
   category: news,images
-  github_url: https://github.com/bartnaus
+  github_url: https://github.com/bartnaus/trmnl-nos-headlines
   learn_more_url: https://nos.nl/feeds
 - keyname: feed_url
   name: NOS feed
