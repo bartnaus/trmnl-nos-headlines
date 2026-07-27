@@ -34,8 +34,9 @@ custom_fields:
 - keyname: author_bio
   name: About
   field_type: author_bio
-  description: An unofficial, glanceable NOS headline reader designed for the larger TRMNL X screen. Nieuws · Voorpagina follows the NOS homepage when possible, while Nieuws · Laatste nieuws shows the RSS feed chronologically. Article text and images always come from RSS. If homepage ordering is unavailable, Voorpagina automatically falls back to RSS order. Other feeds always use RSS order.
-  category: news
+  description: An unofficial, glanceable NOS headline reader, optimized for TRMNL X and compatible with other TRMNL screens. Nieuws · Voorpagina uses a public text proxy to follow the NOS homepage when available. Article text and images come from official NOS RSS feeds. If homepage ordering is unavailable, Voorpagina automatically falls back to RSS order. Other feeds always use RSS order.
+  category: news,images
+  github_url: https://github.com/bartnaus
   learn_more_url: https://nos.nl/feeds
 - keyname: feed_url
   name: NOS feed
@@ -72,10 +73,8 @@ custom_fields:
   default: grayscale
 - keyname: show_timestamp
   name: Show update time
-  field_type: select
-  options:
-  - 'Yes': 'true'
-  - 'No': 'false'
-  default: 'true'
+  description: Show when TRMNL generated the screen.
+  field_type: boolean
+  default: true
 name: NOS Headlines
 refresh_interval: 15
