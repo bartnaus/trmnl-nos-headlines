@@ -1,0 +1,81 @@
+---
+strategy: polling
+no_screen_padding: 'yes'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: 3.1.8
+serverless_language: node
+polling_url: "{{ feed_url }}\r\nhttps://r.jina.ai/http://nos.nl/"
+polling_headers: x-target-selector=main#content&x-no-cache=true
+polling_body: ''
+id: 394538
+oauth_enabled: 'false'
+oauth_pkce_enabled: 'no'
+oauth_authorize_url: ''
+oauth_token_url: ''
+oauth_scopes: ''
+oauth_scope_separator: ''
+oauth_refresh_url: ''
+oauth_auth_params: ''
+oauth_token_headers: ''
+oauth_token_site: ''
+oauth_token_params: ''
+oauth_token_request_auth_method: ''
+oauth_body_format: ''
+oauth_token_response_metadata: ''
+oauth_authorization_method: ''
+oauth_refresh_params: ''
+oauth_token_field_name: ''
+oauth_expiry_field_name: ''
+oauth_expiry_strategy: ''
+oauth_fixed_expiry_ms: ''
+custom_fields:
+- keyname: author_bio
+  name: About
+  field_type: author_bio
+  description: An unofficial, glanceable NOS headline reader designed for the larger TRMNL X screen. Nieuws · Voorpagina follows the NOS homepage when possible, while Nieuws · Laatste nieuws shows the RSS feed chronologically. Article text and images always come from RSS. If homepage ordering is unavailable, Voorpagina automatically falls back to RSS order. Other feeds always use RSS order.
+  category: news
+  learn_more_url: https://nos.nl/feeds
+- keyname: feed_url
+  name: NOS feed
+  description: Choose which NOS section appears on the screen.
+  field_type: select
+  options:
+  - Nieuws · Voorpagina: https://feeds.nos.nl/nosnieuwsalgemeen?trmnl_view=frontpage
+  - Nieuws · Laatste nieuws: https://feeds.nos.nl/nosnieuwsalgemeen?trmnl_view=latest
+  - Nieuws · Binnenland: https://feeds.nos.nl/nosnieuwsbinnenland
+  - Nieuws · Buitenland: https://feeds.nos.nl/nosnieuwsbuitenland
+  - Nieuws · Politiek: https://feeds.nos.nl/nosnieuwspolitiek
+  - Nieuws · Economie: https://feeds.nos.nl/nosnieuwseconomie
+  - Nieuws · Opmerkelijk: https://feeds.nos.nl/nosnieuwsopmerkelijk
+  - Nieuws · Koningshuis: https://feeds.nos.nl/nosnieuwskoningshuis
+  - Nieuws · Cultuur en media: https://feeds.nos.nl/nosnieuwscultuurenmedia
+  - Nieuws · Tech: https://feeds.nos.nl/nosnieuwstech
+  - Sport · Algemeen: https://feeds.nos.nl/nossportalgemeen
+  - Sport · Voetbal: https://feeds.nos.nl/nosvoetbal
+  - Sport · Wielrennen: https://feeds.nos.nl/nossportwielrennen
+  - Sport · Schaatsen: https://feeds.nos.nl/nossportschaatsen
+  - Sport · Tennis: https://feeds.nos.nl/nossporttennis
+  - Sport · Formule 1: https://feeds.nos.nl/nossportformule1
+  - Nieuwsuur: https://feeds.nos.nl/nieuwsuuralgemeen
+  - NOS op 3: https://feeds.nos.nl/nosop3
+  - Jeugdjournaal: https://feeds.nos.nl/jeugdjournaal
+  default: https://feeds.nos.nl/nosnieuwsalgemeen?trmnl_view=frontpage
+- keyname: image_style
+  name: Image treatment
+  description: Grayscale uses the X display's tonal range. High contrast is crisper from a distance.
+  field_type: select
+  options:
+  - Grayscale: grayscale
+  - High contrast: contrast
+  default: grayscale
+- keyname: show_timestamp
+  name: Show update time
+  field_type: select
+  options:
+  - 'Yes': 'true'
+  - 'No': 'false'
+  default: 'true'
+name: NOS Headlines
+refresh_interval: 15
