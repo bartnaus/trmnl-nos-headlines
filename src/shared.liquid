@@ -174,6 +174,100 @@
     margin-bottom: var(--list-gap-small);
   }
 
+  /* TRMNL OG and other medium-width landscape screens. */
+  @media (max-width: 900px) and (orientation: landscape) {
+    .nos-screen {
+      --nos-header-height: 48px;
+      --nos-main-height-reserve: 66px;
+      --nos-full-height-reserve: 70px;
+      padding: var(--gap-medium) var(--gap-large);
+    }
+
+    .nos-logo { width: 74px; }
+    .nos-header { border-bottom-width: 3px; }
+    .nos-main {
+      grid-template-columns: minmax(0, 1.75fr) minmax(210px, .85fr);
+      gap: var(--gap-medium);
+      padding-top: var(--gap-medium);
+    }
+    .nos-editorial { gap: var(--gap); }
+    .nos-lead {
+      grid-template-columns: 1.16fr 1fr;
+      gap: var(--gap-medium);
+      padding-bottom: var(--gap);
+    }
+    .nos-lead-title {
+      font-size: var(--title-large-font-size);
+      line-height: var(--title-large-line-height);
+    }
+    .nos-summary,
+    .nos-card-summary { font-size: var(--richtext-small-font-size); }
+    .nos-card {
+      grid-template-columns: .68fr 1.32fr;
+      gap: var(--gap);
+    }
+    .nos-card-title {
+      font-size: var(--title-small-font-size);
+      line-height: var(--title-small-line-height);
+    }
+    .nos-card-summary { display: none; }
+    .nos-rail { padding-left: var(--gap-medium); }
+    .nos-list-item { padding: var(--list-gap-small) 0; }
+    .nos-list-title {
+      font-size: var(--font-small-font-size);
+      line-height: var(--font-small-line-height);
+    }
+  }
+
+  /* TRMNL X portrait: stack the editorial area above a two-column rail. */
+  @media (orientation: portrait) {
+    .nos-screen--full {
+      --nos-header-height: 58px;
+      --nos-main-height-reserve: 78px;
+      --nos-full-height-reserve: 82px;
+      padding: var(--gap-large);
+    }
+
+    .nos-screen--full .nos-main {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1.55fr) minmax(0, .72fr);
+      gap: var(--gap-large);
+    }
+    .nos-screen--full .nos-editorial {
+      grid-template-rows: minmax(0, 1.35fr) minmax(0, .72fr);
+    }
+    .nos-screen--full .nos-lead {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1.15fr) minmax(0, .85fr);
+      gap: var(--gap-medium);
+    }
+    .nos-screen--full .nos-lead-title {
+      font-size: var(--title-large-font-size);
+      line-height: var(--title-large-line-height);
+    }
+    .nos-screen--full .nos-cards { gap: var(--gap-large); }
+    .nos-screen--full .nos-card {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) minmax(0, .75fr);
+    }
+    .nos-screen--full .nos-rail {
+      min-height: 0;
+      border-left: 0;
+      border-top: 2px solid var(--black);
+      padding-top: var(--gap-medium);
+      padding-left: 0;
+    }
+    .nos-screen--full .nos-rail .nos-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: var(--gap-large);
+      align-content: start;
+    }
+    .nos-screen--full .nos-rail .nos-list-item:first-child {
+      padding-top: var(--gap);
+    }
+  }
+
 </style>
 
 {% template nos_logo %}
