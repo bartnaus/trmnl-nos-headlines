@@ -1,0 +1,56 @@
+{% assign settings = display_settings %}
+{% assign image_style = settings.image_style | default: "grayscale" %}
+{% assign timestamp = settings.show_timestamp | default: "true" %}
+{% assign local_now = "now" | date: "%s" | plus: utc_offset %}
+
+{% if status == "error" or items.size == 0 %}
+  {% render "empty_state", message: message %}
+{% else %}
+  <div class="layout nos-screen nos-screen--full">
+    <header class="nos-header">
+      <div class="nos-brand">
+        {% render "nos_logo" %}
+        <span class="nos-section">{{ section_label | default: "Nieuws" }}</span>
+      </div>
+      {% if timestamp == "true" or timestamp == true %}
+        <span class="nos-timestamp">Bijgewerkt {{ local_now | date: "%H:%M" }}</span>
+      {% endif %}
+    </header>
+
+    <main class="nos-main">
+      <section class="nos-editorial">
+        {% assign lead = items[0] %}
+        <article class="nos-lead">
+          {% render "picture", image: lead.image, image_style: image_style %}
+          <div class="nos-story-copy">
+            <h1 class="nos-lead-title" data-clamp="5">{{ lead.title }}</h1>
+            <div class="nos-summary" data-clamp="10">{{ lead.summary }}</div>
+          </div>
+        </article>
+
+        <div class="nos-cards">
+          {% for item in items offset: 1 limit: 2 %}
+            <article class="nos-card">
+              {% render "picture", image: item.image, image_style: image_style %}
+              <div class="nos-story-copy">
+                <div class="nos-card-title" data-clamp="4">{{ item.title }}</div>
+                <div class="nos-card-summary" data-clamp="7">{{ item.summary }}</div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <aside class="nos-rail">
+        <div class="nos-list">
+          {% assign list_limit = 8 %}
+          {% for item in items offset: 3 limit: list_limit %}
+            <div class="nos-list-item">
+              <div class="nos-list-title" data-clamp="3">{{ item.title }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </aside>
+    </main>
+  </div>
+{% endif %}

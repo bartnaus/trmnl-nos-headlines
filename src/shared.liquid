@@ -1,0 +1,222 @@
+<style>
+  * { box-sizing: border-box; }
+
+  .nos-screen {
+    --nos-header-height: 58px;
+    --nos-main-height-reserve: 78px;
+    --nos-full-height-reserve: 82px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: block;
+    overflow: hidden;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--richtext-font-family);
+    padding: var(--gap-large) var(--gap-xlarge);
+  }
+
+  .nos-screen--full {
+    height: var(--full-h);
+    max-height: var(--full-h);
+  }
+
+  .nos-header {
+    height: var(--nos-header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid var(--black);
+    padding-bottom: var(--gap);
+  }
+
+  .nos-brand { display: flex; align-items: center; gap: var(--gap-medium); }
+  .nos-logo { display: block; width: 92px; height: auto; color: var(--black); }
+  .nos-logo--compact { width: 68px; }
+  .nos-logo__mark { fill: currentColor; }
+  .nos-logo__o { fill: var(--gray-50); }
+  .nos-section {
+    font-family: var(--title-small-font-family);
+    font-size: var(--value-xsmall-font-size);
+    line-height: var(--title-small-line-height);
+    font-weight: 650;
+  }
+  .nos-kicker {
+    font-family: var(--font-small-font-family);
+    font-size: var(--font-small-font-size);
+    line-height: var(--font-small-line-height);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .nos-timestamp {
+    font-family: var(--font-small-font-family);
+    font-size: var(--font-small-font-size);
+    line-height: var(--font-small-line-height);
+    color: var(--gray-25);
+  }
+
+  .nos-main {
+    height: calc(100% - var(--nos-main-height-reserve));
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(250px, .85fr);
+    gap: var(--gap-large);
+    padding-top: var(--gap-large);
+  }
+
+  .nos-screen--full .nos-main {
+    height: calc(var(--full-h) - var(--nos-full-height-reserve));
+  }
+
+  .nos-editorial {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 1.45fr .8fr;
+    gap: var(--gap-medium);
+    overflow: hidden;
+  }
+
+  .nos-lead {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1.24fr 1fr;
+    gap: var(--gap-large);
+    border-bottom: 2px solid var(--black);
+    padding-bottom: var(--gap-medium);
+  }
+
+  .nos-image {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    filter: grayscale(1);
+    background: var(--gray-75);
+  }
+
+  .nos-image--contrast { filter: grayscale(1) contrast(1.55); }
+  .nos-image-wrap { min-height: 0; overflow: hidden; background: var(--gray-75); }
+  .nos-story-copy {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .nos-lead > .nos-story-copy { justify-content: flex-start; }
+  .nos-card > .nos-story-copy { justify-content: flex-start; }
+  .nos-lead-title {
+    font-family: var(--title-xlarge-font-family);
+    font-size: var(--title-xlarge-font-size);
+    line-height: 1.04;
+    letter-spacing: -.035em;
+    font-weight: 820;
+    margin: 0;
+  }
+
+  .nos-summary {
+    font-family: var(--richtext-font-family);
+    font-size: var(--richtext-font-size);
+    line-height: var(--richtext-line-height);
+    margin-top: var(--gap);
+    color: var(--gray-20);
+  }
+
+  .nos-cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-medium); min-height: 0; }
+  .nos-card {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+    gap: var(--gap-medium);
+    overflow: hidden;
+  }
+  .nos-card-title {
+    font-family: var(--title-font-family);
+    font-size: var(--title-font-size);
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    font-weight: 780;
+  }
+  .nos-card-summary {
+    margin-top: var(--list-gap-small);
+    font-family: var(--richtext-small-font-family);
+    font-size: var(--richtext-small-font-size);
+    line-height: var(--richtext-small-line-height);
+    color: var(--gray-25);
+  }
+
+  .nos-rail {
+    min-width: 0;
+    border-left: 2px solid var(--black);
+    padding-left: var(--gap-large);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nos-list { min-height: 0; overflow: hidden; }
+  .nos-rail .nos-list { flex: 1 1 auto; }
+  .nos-rail .nos-list-item:first-child { padding-top: 0; }
+  .nos-list-item { display: grid; grid-template-columns: 1fr; padding: var(--gap) 0; border-bottom: 1px solid var(--gray-50); }
+  .nos-list-title {
+    font-family: var(--title-small-font-family);
+    font-size: var(--title-small-font-size);
+    line-height: var(--title-small-line-height);
+    font-weight: 690;
+  }
+  .nos-empty { height: 100%; display: grid; place-items: center; text-align: center; }
+  .nos-empty strong {
+    display: block;
+    font-family: var(--title-large-font-family);
+    font-size: var(--title-large-font-size);
+    margin-bottom: var(--list-gap-small);
+  }
+
+</style>
+
+{% template nos_logo %}
+  <svg
+    class="nos-logo{% if compact %} nos-logo--compact{% endif %}"
+    viewBox="0 0 115 41"
+    role="img"
+    aria-label="NOS"
+  >
+    <path
+      class="nos-logo__mark"
+      fill-rule="evenodd"
+      d="M33.675 39.321V.976H23.474V11.44c0 3.123.055 8.217.328 9.914-.822-1.588-4.222-6.683-5.978-9.037L9.379.976H0v38.345h10.202V27.6c0-3.123-.056-8.219-.33-9.916.988 1.697 4.278 6.628 5.98 8.985l9.157 12.652zM114.161 27.543c0-7.175-4.279-10.132-13.933-12.433-4.934-1.15-6.304-1.809-6.304-3.233 0-1.368.767-2.356 3.948-2.356 3.893 0 7.293 1.317 10.695 3.617l5.154-8.326c-4.059-2.848-8.774-4.437-15.3-4.437-9.27 0-15.14 4.874-15.14 12.105 0 7.668 4.445 10.189 13.713 12.325 5.155 1.205 6.525 2.08 6.525 3.504 0 1.81-1.205 2.467-4.988 2.467-3.565 0-8.447-1.917-11.245-3.835l-5.154 8.326c4.004 2.628 9.98 4.656 16.177 4.656 9.216 0 15.852-3.615 15.852-12.38"
+      clip-rule="evenodd"
+    />
+    <path
+      class="nos-logo__o"
+      fill-rule="evenodd"
+      d="M59.128 29.912c-5.443 0-9.856-4.409-9.856-9.844 0-5.437 4.413-9.845 9.856-9.845s9.857 4.408 9.857 9.845c0 5.435-4.414 9.844-9.857 9.844m0-29.912C48.033 0 39.037 8.983 39.037 20.068c0 11.082 8.996 20.067 20.091 20.067 11.097 0 20.093-8.985 20.093-20.067C79.22 8.983 70.225 0 59.128 0"
+      clip-rule="evenodd"
+    />
+  </svg>
+{% endtemplate %}
+
+{% template picture %}
+  <div class="nos-image-wrap">
+    {% if image and image != "" %}
+      <img
+        class="nos-image {% if image_style == 'contrast' %}nos-image--contrast{% endif %} image-dither"
+        src="{{ image }}"
+        alt=""
+      >
+    {% endif %}
+  </div>
+{% endtemplate %}
+
+{% template empty_state %}
+  <div class="layout nos-screen">
+    <div class="nos-empty">
+      <div>
+        <strong>Geen nieuws beschikbaar</strong>
+        <span>{{ message | default: "De NOS-feed kon niet worden geladen." }}</span>
+      </div>
+    </div>
+  </div>
+{% endtemplate %}
