@@ -54,10 +54,13 @@
   }
 
   .lead-story {
+    --lead-inset: var(--gap-medium);
     min-height: 0;
     border-bottom: 2px solid var(--black);
+    padding-bottom: var(--lead-inset);
   }
   .lead-story--compact {
+    --lead-inset: 0;
     border-bottom: 0;
   }
 
@@ -86,6 +89,8 @@
     min-height: 0;
     overflow: hidden;
   }
+  .story-card .title { line-height: 1.1; }
+  .story-card .description { line-height: 1.15; }
   .story-card-summary {
     color: var(--gray-25);
   }
@@ -122,6 +127,7 @@
 
     .brand-logo { width: 74px; }
     .news-header { border-bottom-width: 3px; }
+    .lead-story { --lead-inset: var(--gap); }
     .story-card-summary { display: none; }
     .headline-rail { --rail-inset: var(--gap-medium); }
   }

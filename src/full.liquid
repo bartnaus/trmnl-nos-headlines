@@ -20,7 +20,7 @@
     <main class="news-content grid grid--cols-3 portrait:grid--cols-1 gap--medium lg:gap--large">
       <section class="editorial col--span-2 portrait:col--span-1 gap--small lg:gap--medium">
         {% assign lead = items[0] %}
-        <article class="lead-story grid grid--cols-9 portrait:grid--cols-1 gap--medium lg:gap--large pb--small lg:pb--medium">
+        <article class="lead-story grid grid--cols-9 portrait:grid--cols-1 gap--medium lg:gap--large">
           {% render "picture", image: lead.image, image_style: image_style, class_name: "col--span-5 portrait:col--span-1" %}
           <div class="story-copy flex flex--col flex--top col--span-4 portrait:col--span-1">
             <h1 class="text--large lg:text--xlarge lg:portrait:text--large font--bold m--0" data-clamp="5">{{ lead.title }}</h1>
@@ -32,9 +32,9 @@
           {% for item in items offset: 1 limit: 2 %}
             <article class="story-card grid grid--cols-10 portrait:grid--cols-1 gap--small lg:gap--medium">
               {% render "picture", image: item.image, image_style: image_style, class_name: "col--span-3 lg:col--span-4 lg:portrait:col--span-1" %}
-              <div class="story-copy flex flex--col flex--top col--span-7 lg:col--span-6 lg:portrait:col--span-1">
-                <div class="text--base lg:text--large font--bold" data-clamp="4">{{ item.title }}</div>
-                <div class="story-card-summary text--base mt--small" data-clamp="7">{{ item.summary }}</div>
+              <div class="story-copy flex flex--col flex--top gap--small col--span-7 lg:col--span-6 lg:portrait:col--span-1">
+                <div class="title title--small lg:title--base font--bold" data-clamp="4">{{ item.title }}</div>
+                <div class="story-card-summary description" data-clamp="7">{{ item.summary }}</div>
               </div>
             </article>
           {% endfor %}
