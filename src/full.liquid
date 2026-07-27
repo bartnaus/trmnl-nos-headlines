@@ -18,7 +18,7 @@
     </header>
 
     <main class="nos-main grid grid--cols-3 portrait:grid--cols-1 gap--medium lg:gap--large pt--medium lg:pt--large">
-      <section class="nos-editorial grid col--span-2 portrait:col--span-1 gap--small lg:gap--medium">
+      <section class="nos-editorial col--span-2 portrait:col--span-1 gap--small lg:gap--medium">
         {% assign lead = items[0] %}
         <article class="nos-lead grid grid--cols-9 portrait:grid--cols-1 gap--medium lg:gap--large pb--small lg:pb--medium">
           {% render "picture", image: lead.image, image_style: image_style, class_name: "col--span-5 portrait:col--span-1" %}
