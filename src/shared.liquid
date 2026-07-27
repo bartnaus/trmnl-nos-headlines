@@ -11,7 +11,7 @@
     min-height: 0;
     display: block;
     overflow: hidden;
-    padding: var(--screen-space-block) var(--screen-space-inline);
+    padding: var(--screen-space-block) var(--screen-space-inline) var(--gap-small);
   }
 
   .news-screen--full {
@@ -19,7 +19,7 @@
     max-height: var(--full-h);
     display: grid;
     grid-template-rows: var(--header-height) minmax(0, 1fr);
-    row-gap: var(--gap-medium);
+    row-gap: var(--gap-small);
   }
 
   .news-header {
