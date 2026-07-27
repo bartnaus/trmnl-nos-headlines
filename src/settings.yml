@@ -6,7 +6,7 @@ static_data: ''
 polling_verb: get
 framework_version: 3.1.8
 serverless_language: node
-polling_url: "{{ feed_url }}\r\nhttps://r.jina.ai/http://nos.nl/"
+polling_url: "{{ feed_url }}\r\nhttps://r.jina.ai/nos.nl"
 polling_headers: x-target-selector=main#content&x-no-cache=true
 polling_body: ''
 id: 394538
