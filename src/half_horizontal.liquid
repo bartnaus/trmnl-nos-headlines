@@ -1,0 +1,25 @@
+{% assign settings = display_settings %}
+{% if status == "error" or items.size == 0 %}
+  {% render "empty_state", message: message %}
+{% else %}
+  <div class="layout nos-screen nos-screen--half-horizontal">
+    <header class="nos-header">
+      <div class="nos-brand">{% render "nos_logo" %}<span class="nos-section">{{ section_label | default: "Nieuws" }}</span></div>
+      <span class="nos-kicker">Net binnen</span>
+    </header>
+    <div class="nos-main" style="grid-template-columns: 1.25fr 1fr;">
+      {% assign lead = items[0] %}
+      <article class="nos-lead" style="grid-template-columns: 1fr 1fr; border-bottom: 0; padding-bottom: 0;">
+        {% render "picture", image: lead.image, image_style: settings.image_style %}
+        <div class="nos-story-copy"><h1 class="nos-lead-title" data-clamp="5">{{ lead.title }}</h1></div>
+      </article>
+      <aside class="nos-rail">
+        <div class="nos-list">
+          {% for item in items offset: 1 limit: 5 %}
+            <div class="nos-list-item"><div class="nos-list-title" data-clamp="2">{{ item.title }}</div></div>
+          {% endfor %}
+        </div>
+      </aside>
+    </div>
+  </div>
+{% endif %}

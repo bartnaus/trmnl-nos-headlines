@@ -1,0 +1,15 @@
+{% assign settings = display_settings %}
+{% if status == "error" or items.size == 0 %}
+  {% render "empty_state", message: message %}
+{% else %}
+  <div class="layout nos-screen nos-screen--quadrant" style="padding: var(--gap-medium) var(--gap-large);">
+    <header class="nos-header" style="height: 48px;">
+      <div class="nos-brand">{% render "nos_logo", compact: true %}<span class="nos-section" style="font-size: var(--title-small-font-size);">{{ section_label | default: "Nieuws" }}</span></div>
+    </header>
+    <div class="nos-list">
+      {% for item in items limit: 6 %}
+        <div class="nos-list-item" style="padding: var(--gap) 0;"><div class="nos-list-title" data-clamp="2">{{ item.title }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
