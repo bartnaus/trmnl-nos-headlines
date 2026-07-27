@@ -2,18 +2,18 @@
 {% if status == "error" or items.size == 0 %}
   {% render "empty_state", message: message %}
 {% else %}
-  <div class="layout nos-screen nos-screen--half-vertical">
-    <header class="nos-header">
-      <div class="nos-brand">{% render "nos_logo" %}<span class="nos-section">{{ section_label | default: "Nieuws" }}</span></div>
+  <div class="layout news-screen bg--white text--black">
+    <header class="news-header flex flex--row flex--center-y flex--between pb--small">
+      <div class="flex flex--row flex--center-y gap--medium">{% render "brand_logo" %}<span class="text--small lg:text--base font--bold">{{ section_label | default: "Nieuws" }}</span></div>
     </header>
     {% assign lead = items[0] %}
-    <div style="height: 42%; padding-top: var(--gap-medium);">
+    <div class="half-image pt--medium">
       {% render "picture", image: lead.image, image_style: settings.image_style %}
     </div>
-    <h1 class="nos-lead-title" style="margin-top: var(--gap-medium);" data-clamp="4">{{ lead.title }}</h1>
-    <div class="nos-list" style="margin-top: var(--gap);" >
+    <h1 class="text--large font--bold mt--medium" data-clamp="4">{{ lead.title }}</h1>
+    <div class="headline-list grid grid--cols-1 mt--small">
       {% for item in items offset: 1 limit: 4 %}
-        <div class="nos-list-item"><div class="nos-list-title" data-clamp="2">{{ item.title }}</div></div>
+        <div class="headline-item py--small"><div class="text--small lg:text--base font--bold" data-clamp="2">{{ item.title }}</div></div>
       {% endfor %}
     </div>
   </div>
