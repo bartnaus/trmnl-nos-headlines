@@ -10,10 +10,6 @@
     min-height: 0;
     display: block;
     overflow: hidden;
-    background: var(--white);
-    color: var(--black);
-    font-family: var(--richtext-font-family);
-    padding: var(--gap-large) var(--gap-xlarge);
   }
 
   .nos-screen--full {
@@ -23,45 +19,21 @@
 
   .nos-header {
     height: var(--nos-header-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     border-bottom: 4px solid var(--black);
-    padding-bottom: var(--gap);
   }
 
-  .nos-brand { display: flex; align-items: center; gap: var(--gap-medium); }
   .nos-logo { display: block; width: 92px; height: auto; color: var(--black); }
   .nos-logo--compact { width: 68px; }
   .nos-logo__mark { fill: currentColor; }
   .nos-logo__o { fill: var(--gray-50); }
-  .nos-section {
-    font-family: var(--title-small-font-family);
-    font-size: var(--value-xsmall-font-size);
-    line-height: var(--title-small-line-height);
-    font-weight: 650;
-  }
   .nos-kicker {
-    font-family: var(--font-small-font-family);
-    font-size: var(--font-small-font-size);
-    line-height: var(--font-small-line-height);
     letter-spacing: .12em;
     text-transform: uppercase;
-    font-weight: 700;
   }
-  .nos-timestamp {
-    font-family: var(--font-small-font-family);
-    font-size: var(--font-small-font-size);
-    line-height: var(--font-small-line-height);
-    color: var(--gray-25);
-  }
+  .nos-timestamp { color: var(--gray-25); }
 
   .nos-main {
     height: calc(100% - var(--nos-main-height-reserve));
-    display: grid;
-    grid-template-columns: minmax(0, 1.8fr) minmax(250px, .85fr);
-    gap: var(--gap-large);
-    padding-top: var(--gap-large);
   }
 
   .nos-screen--full .nos-main {
@@ -71,26 +43,22 @@
   .nos-editorial {
     min-width: 0;
     min-height: 0;
-    display: grid;
     grid-template-rows: 1.45fr .8fr;
-    gap: var(--gap-medium);
     overflow: hidden;
   }
 
   .nos-lead {
     min-height: 0;
-    display: grid;
-    grid-template-columns: 1.24fr 1fr;
-    gap: var(--gap-large);
     border-bottom: 2px solid var(--black);
-    padding-bottom: var(--gap-medium);
+  }
+  .nos-lead--half-horizontal {
+    border-bottom: 0;
   }
 
   .nos-image {
     width: 100%;
     height: 100%;
     min-height: 0;
-    object-fit: cover;
     filter: grayscale(1);
     background: var(--gray-75);
   }
@@ -100,79 +68,36 @@
   .nos-story-copy {
     min-width: 0;
     min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     overflow: hidden;
   }
-  .nos-lead > .nos-story-copy { justify-content: flex-start; }
-  .nos-card > .nos-story-copy { justify-content: flex-start; }
-  .nos-lead-title {
-    font-family: var(--title-xlarge-font-family);
-    font-size: var(--title-xlarge-font-size);
-    line-height: 1.04;
-    letter-spacing: -.035em;
-    font-weight: 820;
-    margin: 0;
-  }
-
   .nos-summary {
-    font-family: var(--richtext-font-family);
-    font-size: var(--richtext-font-size);
-    line-height: var(--richtext-line-height);
-    margin-top: var(--gap);
     color: var(--gray-20);
   }
 
-  .nos-cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-medium); min-height: 0; }
+  .nos-cards { min-height: 0; }
   .nos-card {
     min-width: 0;
     min-height: 0;
-    display: grid;
-    grid-template-columns: .78fr 1.22fr;
-    gap: var(--gap-medium);
     overflow: hidden;
   }
-  .nos-card-title {
-    font-family: var(--title-font-family);
-    font-size: var(--title-font-size);
-    line-height: 1.08;
-    letter-spacing: -.02em;
-    font-weight: 780;
-  }
   .nos-card-summary {
-    margin-top: var(--list-gap-small);
-    font-family: var(--richtext-small-font-family);
-    font-size: var(--richtext-small-font-size);
-    line-height: var(--richtext-small-line-height);
     color: var(--gray-25);
   }
 
   .nos-rail {
     min-width: 0;
     border-left: 2px solid var(--black);
-    padding-left: var(--gap-large);
-    display: flex;
-    flex-direction: column;
   }
 
   .nos-list { min-height: 0; overflow: hidden; }
   .nos-rail .nos-list { flex: 1 1 auto; }
-  .nos-rail .nos-list-item:first-child { padding-top: 0; }
-  .nos-list-item { display: grid; grid-template-columns: 1fr; padding: var(--gap) 0; border-bottom: 1px solid var(--gray-50); }
-  .nos-list-title {
-    font-family: var(--title-small-font-family);
-    font-size: var(--title-small-font-size);
-    line-height: var(--title-small-line-height);
-    font-weight: 690;
-  }
-  .nos-empty { height: 100%; display: grid; place-items: center; text-align: center; }
+  .nos-list-item { border-bottom: 1px solid var(--gray-50); }
+  .nos-empty { height: 100%; }
   .nos-empty strong {
     display: block;
-    font-family: var(--title-large-font-family);
-    font-size: var(--title-large-font-size);
-    margin-bottom: var(--list-gap-small);
   }
+  .nos-half-vertical-image { height: 42%; }
+  .nos-header--compact { height: 48px; }
 
   /* TRMNL OG and other medium-width landscape screens. */
   @media (max-width: 900px) and (orientation: landscape) {
@@ -180,43 +105,11 @@
       --nos-header-height: 48px;
       --nos-main-height-reserve: 66px;
       --nos-full-height-reserve: 70px;
-      padding: var(--gap-medium) var(--gap-large);
     }
 
     .nos-logo { width: 74px; }
     .nos-header { border-bottom-width: 3px; }
-    .nos-main {
-      grid-template-columns: minmax(0, 1.75fr) minmax(210px, .85fr);
-      gap: var(--gap-medium);
-      padding-top: var(--gap-medium);
-    }
-    .nos-editorial { gap: var(--gap); }
-    .nos-lead {
-      grid-template-columns: 1.16fr 1fr;
-      gap: var(--gap-medium);
-      padding-bottom: var(--gap);
-    }
-    .nos-lead-title {
-      font-size: var(--title-large-font-size);
-      line-height: var(--title-large-line-height);
-    }
-    .nos-summary,
-    .nos-card-summary { font-size: var(--richtext-small-font-size); }
-    .nos-card {
-      grid-template-columns: .68fr 1.32fr;
-      gap: var(--gap);
-    }
-    .nos-card-title {
-      font-size: var(--title-small-font-size);
-      line-height: var(--title-small-line-height);
-    }
     .nos-card-summary { display: none; }
-    .nos-rail { padding-left: var(--gap-medium); }
-    .nos-list-item { padding: var(--list-gap-small) 0; }
-    .nos-list-title {
-      font-size: var(--font-small-font-size);
-      line-height: var(--font-small-line-height);
-    }
   }
 
   /* TRMNL X portrait: stack the editorial area above a two-column rail. */
@@ -225,46 +118,27 @@
       --nos-header-height: 58px;
       --nos-main-height-reserve: 78px;
       --nos-full-height-reserve: 82px;
-      padding: var(--gap-large);
     }
 
     .nos-screen--full .nos-main {
-      grid-template-columns: 1fr;
       grid-template-rows: minmax(0, 1.55fr) minmax(0, .72fr);
-      gap: var(--gap-large);
     }
     .nos-screen--full .nos-editorial {
       grid-template-rows: minmax(0, 1.35fr) minmax(0, .72fr);
     }
     .nos-screen--full .nos-lead {
-      grid-template-columns: 1fr;
       grid-template-rows: minmax(0, 1.15fr) minmax(0, .85fr);
-      gap: var(--gap-medium);
     }
-    .nos-screen--full .nos-lead-title {
-      font-size: var(--title-large-font-size);
-      line-height: var(--title-large-line-height);
-    }
-    .nos-screen--full .nos-cards { gap: var(--gap-large); }
     .nos-screen--full .nos-card {
-      grid-template-columns: 1fr;
       grid-template-rows: minmax(0, 1fr) minmax(0, .75fr);
     }
     .nos-screen--full .nos-rail {
       min-height: 0;
       border-left: 0;
       border-top: 2px solid var(--black);
-      padding-top: var(--gap-medium);
-      padding-left: 0;
     }
     .nos-screen--full .nos-rail .nos-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: var(--gap-large);
       align-content: start;
-    }
-    .nos-screen--full .nos-rail .nos-list-item:first-child {
-      padding-top: var(--gap);
     }
   }
 
@@ -293,10 +167,10 @@
 {% endtemplate %}
 
 {% template picture %}
-  <div class="nos-image-wrap">
+  <div class="nos-image-wrap {{ class_name }}">
     {% if image and image != "" %}
       <img
-        class="nos-image {% if image_style == 'contrast' %}nos-image--contrast{% endif %} image-dither"
+        class="nos-image image image--cover {% if image_style == 'contrast' %}nos-image--contrast{% endif %} image-dither"
         src="{{ image }}"
         alt=""
       >
@@ -305,10 +179,10 @@
 {% endtemplate %}
 
 {% template empty_state %}
-  <div class="layout nos-screen">
-    <div class="nos-empty">
+  <div class="layout nos-screen bg--white text--black py--medium px--large lg:py--large lg:px--xlarge">
+    <div class="nos-empty flex flex--col flex--center text--center">
       <div>
-        <strong>Geen nieuws beschikbaar</strong>
+        <strong class="text--xxlarge font--bold mb--small">Geen nieuws beschikbaar</strong>
         <span>{{ message | default: "De NOS-feed kon niet worden geladen." }}</span>
       </div>
     </div>
