@@ -19,7 +19,7 @@
     max-height: var(--full-h);
     display: grid;
     grid-template-rows: var(--header-height) minmax(0, 1fr);
-    row-gap: var(--gap-large);
+    row-gap: var(--gap-medium);
   }
 
   .news-header {
@@ -94,6 +94,14 @@
   .story-card-summary {
     color: var(--gray-25);
   }
+  .story-summary,
+  .story-card-summary {
+    hyphens: auto;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    word-break: normal;
+  }
+  .story-heading { text-wrap: balance; }
 
   .headline-rail {
     --rail-inset: var(--gap-large);

@@ -6,7 +6,7 @@
 {% if status == "error" or items.size == 0 %}
   {% render "empty_state", message: message %}
 {% else %}
-  <div class="layout news-screen news-screen--full bg--white text--black">
+  <div class="layout news-screen news-screen--full bg--white text--black" lang="nl">
     <header class="news-header flex flex--row flex--center-y flex--between pb--small">
       <div class="flex flex--row flex--center-y gap--medium">
         {% render "brand_logo" %}
@@ -23,8 +23,8 @@
         <article class="lead-story grid grid--cols-9 portrait:grid--cols-1 gap--medium lg:gap--large">
           {% render "picture", image: lead.image, image_style: image_style, class_name: "col--span-5 portrait:col--span-1" %}
           <div class="story-copy flex flex--col flex--top col--span-4 portrait:col--span-1">
-            <h1 class="text--large lg:text--xlarge lg:portrait:text--large font--bold m--0" data-clamp="5">{{ lead.title }}</h1>
-            <div class="story-summary text--base lg:text--large mt--small" data-clamp="10">{{ lead.summary }}</div>
+            <h1 class="story-heading text--large lg:text--xlarge lg:portrait:text--large font--bold m--0" data-clamp="5">{{ lead.title }}</h1>
+            <div class="story-summary text--base lg:text--large text--justify mt--small" data-clamp="10">{{ lead.summary }}</div>
           </div>
         </article>
 
@@ -33,8 +33,8 @@
             <article class="story-card grid grid--cols-10 portrait:grid--cols-1 gap--small lg:gap--medium">
               {% render "picture", image: item.image, image_style: image_style, class_name: "col--span-3 lg:col--span-4 lg:portrait:col--span-1" %}
               <div class="story-copy flex flex--col flex--top gap--small col--span-7 lg:col--span-6 lg:portrait:col--span-1">
-                <div class="title title--small lg:title--base font--bold" data-clamp="4">{{ item.title }}</div>
-                <div class="story-card-summary description" data-clamp="7">{{ item.summary }}</div>
+                <div class="story-heading title title--small lg:title--base font--bold" data-clamp="4">{{ item.title }}</div>
+                <div class="story-card-summary description description--large font--regular text--justify" data-clamp="7">{{ item.summary }}</div>
               </div>
             </article>
           {% endfor %}
