@@ -14,7 +14,7 @@
     padding: var(--screen-space-block) var(--screen-space-inline) var(--gap-small);
   }
 
-  .news-screen--full {
+  .layout.news-screen--full {
     height: var(--full-h);
     max-height: var(--full-h);
     display: grid;
@@ -121,13 +121,6 @@
   .news-screen--quadrant {
     --screen-space-block: var(--gap-medium);
     --screen-space-inline: var(--gap-large);
-  }
-
-  /* Tighten the header-to-content rhythm on larger TRMNL X screens only. */
-  @media (min-width: 901px) {
-    .news-screen--full .news-content {
-      margin-top: calc(-1 * var(--gap-medium));
-    }
   }
 
   /* TRMNL OG and other medium-width landscape screens. */

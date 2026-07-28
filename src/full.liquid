@@ -6,7 +6,7 @@
 {% if status == "error" or items.size == 0 %}
   {% render "empty_state", message: message %}
 {% else %}
-  <div class="layout news-screen news-screen--full gap--small bg--white text--black" lang="nl">
+  <div class="layout layout--stretch news-screen news-screen--full gap--small bg--white text--black" lang="nl">
     <header class="news-header flex flex--row flex--center-y flex--between pb--small">
       <div class="flex flex--row flex--center-y gap--medium">
         {% render "brand_logo" %}
