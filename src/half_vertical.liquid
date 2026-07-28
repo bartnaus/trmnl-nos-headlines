@@ -4,7 +4,7 @@
 {% else %}
   <div class="layout news-screen bg--white text--black">
     <header class="news-header flex flex--row flex--center-y flex--between pb--small">
-      <div class="flex flex--row flex--center-y gap--medium">{% render "brand_logo" %}<span class="text--small lg:text--base font--bold">{{ section_label | default: "Nieuws" }}</span></div>
+      <div class="flex flex--row flex--center-y gap--medium">{% render "brand_logo", compact: false %}<span class="text--small lg:text--base font--bold">{{ section_label | default: "Nieuws" }}</span></div>
     </header>
     {% assign lead = items[0] %}
     <div class="half-image pt--medium">
