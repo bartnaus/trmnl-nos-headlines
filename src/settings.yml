@@ -77,4 +77,5 @@ custom_fields:
   github_url: https://github.com/bartnaus/trmnl-nos-headlines
   learn_more_url: https://nos.nl/feeds
 name: NOS Headlines
+description: Unofficial NOS news with photos
 refresh_interval: 15
