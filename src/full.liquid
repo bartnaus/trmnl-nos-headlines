@@ -6,6 +6,12 @@
 {% if status == "error" or items.size == 0 %}
   {% render "empty_state", message: message %}
 {% else %}
+<div class="grid grid--cols-4" style="height: 20px">
+  <div class="bg--black"></div>
+  <div class="bg--gray-25"></div>
+  <div class="bg--gray-50"></div>
+  <div class="bg--gray-75"></div>
+</div>
   <div class="layout layout--stretch news-screen news-screen--full gap--small lg:gap--medium bg--white text--black" lang="nl">
     <header class="news-header flex flex--row flex--center-y flex--between pb--small">
       <div class="flex flex--row flex--center-y gap--medium">
