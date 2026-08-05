@@ -28,14 +28,21 @@
   }
 
   .news-header {
+    position: relative;
     height: var(--header-height);
-    border-bottom: 4px solid var(--black);
+  }
+  .news-header-rule {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
   }
 
   .brand-logo { display: block; width: 92px; height: auto; color: var(--black); }
   .brand-logo--compact { width: 68px; }
   .brand-logo__mark { fill: currentColor; }
-  .brand-logo__accent { fill: var(--gray-50); }
+  .brand-logo__accent { fill: currentColor; }
   .kicker {
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -60,13 +67,22 @@
 
   .lead-story {
     --lead-inset: var(--gap-medium);
+    position: relative;
     min-height: 0;
-    border-bottom: 2px solid var(--black);
     padding-bottom: var(--lead-inset);
+  }
+  .lead-story-rule {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
   }
   .lead-story--compact {
     --lead-inset: 0;
-    border-bottom: 0;
+  }
+  .lead-story--compact .lead-story-rule {
+    display: none;
   }
 
   .story-image {
@@ -111,14 +127,28 @@
 
   .headline-rail {
     --rail-inset: var(--gap-large);
+    position: relative;
     min-width: 0;
-    border-left: 2px solid var(--black);
     padding-left: var(--rail-inset);
+  }
+  .headline-rail-rule {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
   }
 
   .headline-list { min-height: 0; overflow: hidden; }
   .headline-rail .headline-list { flex: 1 1 auto; }
-  .headline-item { border-bottom: 1px solid var(--gray-50); }
+  .headline-item { position: relative; }
+  .headline-item-rule {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+  }
   .empty-state { height: 100%; }
   .empty-state strong {
     display: block;
@@ -140,7 +170,7 @@
     }
 
     .brand-logo { width: 74px; }
-    .news-header { border-bottom-width: 3px; }
+    .news-header-rule { height: 3px; }
     .lead-story { --lead-inset: var(--gap); }
     .story-card-summary { display: none; }
     .headline-rail { --rail-inset: var(--gap-medium); }
@@ -171,8 +201,12 @@
     .news-screen--full .headline-rail {
       --rail-inset: 0;
       min-height: 0;
-      border-left: 0;
-      border-top: 2px solid var(--black);
+    }
+    .news-screen--full .headline-rail-rule {
+      right: 0;
+      bottom: auto;
+      width: auto;
+      height: 2px;
     }
     .news-screen--full .headline-rail .headline-list {
       align-content: start;
@@ -195,7 +229,7 @@
       clip-rule="evenodd"
     />
     <path
-      class="brand-logo__accent"
+      class="brand-logo__accent text--gray-50"
       fill-rule="evenodd"
       d="M59.128 29.912c-5.443 0-9.856-4.409-9.856-9.844 0-5.437 4.413-9.845 9.856-9.845s9.857 4.408 9.857 9.845c0 5.435-4.414 9.844-9.857 9.844m0-29.912C48.033 0 39.037 8.983 39.037 20.068c0 11.082 8.996 20.067 20.091 20.067 11.097 0 20.093-8.985 20.093-20.067C79.22 8.983 70.225 0 59.128 0"
       clip-rule="evenodd"
